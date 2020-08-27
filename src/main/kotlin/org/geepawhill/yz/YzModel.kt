@@ -10,18 +10,18 @@ class YzModel {
 
     val canRoll = Bindings.notEqual(rollsLeftProperty, 0)
 
-    val dice = listOf(
-            SimpleIntegerProperty(0),
-            SimpleIntegerProperty(0),
-            SimpleIntegerProperty(0),
-            SimpleIntegerProperty(0),
-            SimpleIntegerProperty(0)
+    val dice = arrayOf(
+            DieModel(),
+            DieModel(),
+            DieModel(),
+            DieModel(),
+            DieModel()
     )
 
     fun roll() {
         if (!canRoll.value) throw RuntimeException("Illegal roll called!")
         for (die in dice) {
-            die.value = randoms.nextInt(6) + 1
+            die.pips = randoms.nextInt(6) + 1
         }
         rollsLeftProperty.value = rollsLeftProperty.value - 1
     }

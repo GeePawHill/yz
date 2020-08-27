@@ -23,7 +23,7 @@ class YzModelTest {
         model.start()
         model.roll()
         for (die in model.dice) {
-            assertThat(die.value).isNotEqualTo(0)
+            assertThat(die.pips).isNotEqualTo(0)
         }
     }
 
