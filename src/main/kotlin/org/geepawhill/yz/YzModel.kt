@@ -1,6 +1,6 @@
 package org.geepawhill.yz
 
-import javafx.beans.binding.Bindings
+import javafx.beans.property.SimpleBooleanProperty
 import javafx.beans.property.SimpleIntegerProperty
 
 class YzModel {
@@ -9,7 +9,7 @@ class YzModel {
 
     private val rollsLeftProperty = SimpleIntegerProperty(0)
 
-    val canRoll = Bindings.notEqual(rollsLeftProperty, 0)
+    val canRoll = SimpleBooleanProperty(game.canRoll)
 
     val dice = arrayOf(
             DieModel(),
@@ -20,13 +20,17 @@ class YzModel {
     )
 
     fun roll() {
-        if (!canRoll.value) throw RuntimeException("Illegal roll called!")
-        game.dice.roll()
-        for (die in 0..4) dice[die].pips = game.dice.pips[die]
-        rollsLeftProperty.value = rollsLeftProperty.value - 1
+        game.roll()
+        update()
+    }
+
+    private fun update() {
+        for (die in 0..4) dice[die].pips = game.pips[die]
+        canRoll.value = game.canRoll
     }
 
     fun start() {
-        rollsLeftProperty.value = 3
+        game.start()
+        update()
     }
 }
