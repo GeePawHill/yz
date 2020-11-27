@@ -2,52 +2,25 @@ package org.geepawhill.yz
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
 
 class YzModelTest {
-    val model = YzModel()
+    val game = YzGame()
+    val model = YzModel(game)
 
     @Test
-    fun `can't roll dice at start`() {
-        assertThat(model.canRoll.value).isFalse()
-    }
-
-    @Test
-    fun `can roll after start`() {
-        model.start()
-        assertThat(model.canRoll.value).isTrue()
-    }
-
-    @Test
-    fun `rolls change the dice properties`() {
-        model.start()
-        model.roll()
+    fun `updates pips from game`() {
+        game.start()
+        game.roll()
+        model.update()
         for (die in model.dice) {
-            assertThat(die.pips).isNotEqualTo(0)
+            assertThat(die.pips).isNotEqualTo(Dice.UNKNOWN)
         }
     }
 
     @Test
-    fun `throws on unallowed roll`() {
-        assertThrows<RuntimeException> { model.roll() }
-    }
-
-    @Test
-    fun `three rolls allowed without start`() {
-        model.start()
-        model.roll()
-        model.roll()
-        model.roll()
-        assertThat(model.canRoll.value).isFalse()
-    }
-
-    @Test
-    fun `start after three rolls allows roll`() {
-        model.start()
-        model.roll()
-        model.roll()
-        model.roll()
-        model.start()
+    fun `updates canRoll from game`() {
+        game.start()
+        model.update()
         assertThat(model.canRoll.value).isTrue()
     }
 }

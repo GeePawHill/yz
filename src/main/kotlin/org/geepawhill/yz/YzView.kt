@@ -3,7 +3,7 @@ package org.geepawhill.yz
 import tornadofx.*
 
 class YzView : View() {
-    val model = YzModel()
+    val model = YzModel(YzGame())
 
     override val root = pane {
         hbox {

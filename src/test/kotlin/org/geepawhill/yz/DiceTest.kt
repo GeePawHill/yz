@@ -29,4 +29,12 @@ class DiceTest {
         assertThat(dice.pips).containsExactly(5, 4, 3, 2, 1)
     }
 
+    @Test
+    fun `reset resets to unknowns`() {
+        dice.roll()
+        dice.reset()
+        dice.pips.forEach { assertThat(it).isEqualTo(UNKNOWN) }
+    }
+
+
 }
