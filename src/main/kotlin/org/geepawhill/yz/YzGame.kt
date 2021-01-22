@@ -1,9 +1,12 @@
 package org.geepawhill.yz
 
+import com.google.common.eventbus.EventBus
+
 class YzGame {
 
+    val bus = EventBus()
     private var rollsInRound = 3
-    private val dice = Dice(RandomRoller())
+    private val dice = Dice(bus, RandomRoller())
 
     val canRoll: Boolean get() = rollsInRound < 3
     val pips get() = dice.pips.toList()

@@ -7,6 +7,13 @@ class YzModelTest {
     val game = YzGame()
     val model = YzModel(game)
 
+
+    @Test
+    fun `handles pips change events`() {
+        game.bus.post(PipChange(4, 6))
+        assertThat(model.dice[4].pips).isEqualTo(6)
+    }
+
     @Test
     fun `updates pips from game`() {
         game.start()

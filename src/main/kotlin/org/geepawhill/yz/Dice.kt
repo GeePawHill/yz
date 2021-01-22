@@ -1,10 +1,17 @@
 package org.geepawhill.yz
 
-class Dice(private val roller: Roller) {
+import com.google.common.eventbus.EventBus
+
+data class PipChange(val die: Int, val pips: Int)
+
+class Dice(private val bus: EventBus, private val roller: Roller) {
     val pips = arrayOf(UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN)
 
     fun roll() {
-        for (die in 0..4) pips[die] = roller.roll()
+        for (die in 0..4) {
+            pips[die] = roller.roll()
+            bus.post(PipChange(die, pips[die]))
+        }
     }
 
     fun reset() {

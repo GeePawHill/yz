@@ -1,5 +1,7 @@
 package org.geepawhill.yz
 
+import com.google.common.eventbus.EventBus
+import com.google.common.eventbus.Subscribe
 import org.assertj.core.api.Assertions.assertThat
 import org.geepawhill.yz.Dice.Companion.UNKNOWN
 import org.junit.jupiter.api.Test
@@ -16,7 +18,31 @@ class TestingRoller(vararg pending: Int) : Roller {
 }
 
 class DiceTest {
-    val dice = Dice(TestingRoller(5, 4, 3, 2, 1))
+    val bus = EventBus()
+    val dice = Dice(bus, TestingRoller(5, 4, 3, 2, 1))
+
+    val events = mutableListOf<Any>()
+
+    init {
+        bus.register(this)
+    }
+
+    @Subscribe
+    fun handleAny(any: Any) {
+        events += any
+    }
+
+    @Test
+    fun `dice sends pip change events`() {
+        dice.roll()
+        assertThat(events).contains(
+            PipChange(0, 5),
+            PipChange(1, 4),
+            PipChange(2, 3),
+            PipChange(3, 2),
+            PipChange(4, 1)
+        )
+    }
 
     @Test
     fun `dice start out as unknowns`() {
