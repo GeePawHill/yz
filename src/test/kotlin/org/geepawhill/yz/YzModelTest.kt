@@ -15,19 +15,8 @@ class YzModelTest {
     }
 
     @Test
-    fun `updates pips from game`() {
-        game.start()
-        game.roll()
-        model.update()
-        for (die in model.dice) {
-            assertThat(die.pips).isNotEqualTo(Dice.UNKNOWN)
-        }
-    }
-
-    @Test
-    fun `updates canRoll from game`() {
-        game.start()
-        model.update()
-        assertThat(model.canRoll.value).isTrue()
+    fun `handles canRoll change events`() {
+        game.bus.post(CanRollChange(true))
+        assertThat(model.canRoll.value).isEqualTo(true)
     }
 }

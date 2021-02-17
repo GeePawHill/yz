@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleBooleanProperty
 
 class YzModel(private val game: YzGame) {
 
-    val canRoll = SimpleBooleanProperty(game.canRoll)
+    val canRoll = SimpleBooleanProperty(false)
 
     val dice = arrayOf(
         DieModel(),
@@ -24,17 +24,16 @@ class YzModel(private val game: YzGame) {
         dice[event.die].pips = event.pips
     }
 
-    fun roll() {
-        game.roll()
-        update()
+    @Subscribe
+    fun handleCanRollChange(event: CanRollChange) {
+        canRoll.value = event.canRoll
     }
 
-    fun update() {
-        canRoll.value = game.canRoll
+    fun roll() {
+        game.roll()
     }
 
     fun start() {
         game.start()
-        update()
     }
 }

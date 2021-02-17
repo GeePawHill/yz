@@ -8,14 +8,16 @@ class Dice(private val bus: EventBus, private val roller: Roller) {
     val pips = arrayOf(UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN)
 
     fun roll() {
-        for (die in 0..4) {
-            pips[die] = roller.roll()
-            bus.post(PipChange(die, pips[die]))
-        }
+        for (die in 0..4) changePips(die, roller.roll())
     }
 
     fun reset() {
-        for (die in 0..4) pips[die] = UNKNOWN
+        for (die in 0..4) changePips(die, UNKNOWN)
+    }
+
+    private fun changePips(die: Int, value: Int) {
+        pips[die] = value
+        bus.post(PipChange(die, value))
     }
 
     companion object {

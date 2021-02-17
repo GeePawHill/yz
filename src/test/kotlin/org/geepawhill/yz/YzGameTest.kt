@@ -6,48 +6,25 @@ import org.junit.jupiter.api.assertThrows
 
 internal class YzGameTest {
     val game = YzGame()
+    val sink = EventSink(game.bus)
 
     @Test
-    fun `can't roll dice at start`() {
-        assertThat(game.canRoll).isFalse()
+    fun `sends canRoll true on start`() {
+        game.start()
+        assertThat(sink.last()).isEqualTo(CanRollChange(true))
+    }
+
+    @Test
+    fun `sends canRoll false after three rolls`() {
+        game.start()
+        game.roll()
+        game.roll()
+        game.roll()
+        assertThat(sink.last()).isEqualTo(CanRollChange(false))
     }
 
     @Test
     fun `throws on unallowed roll`() {
         assertThrows<RuntimeException> { game.roll() }
-    }
-
-    @Test
-    fun `can roll after start`() {
-        game.start()
-        assertThat(game.canRoll).isTrue()
-    }
-
-    @Test
-    fun `three rolls allowed without start`() {
-        game.start()
-        game.roll()
-        game.roll()
-        game.roll()
-        assertThat(game.canRoll).isFalse()
-    }
-
-    @Test
-    fun `rolls change the pips`() {
-        game.start()
-        game.roll()
-        for (pips in game.pips) {
-            assertThat(pips).isNotEqualTo(0)
-        }
-    }
-
-    @Test
-    fun `start after three rolls allows roll`() {
-        game.start()
-        game.roll()
-        game.roll()
-        game.roll()
-        game.start()
-        assertThat(game.canRoll).isTrue()
     }
 }
