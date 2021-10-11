@@ -2,11 +2,12 @@ package org.geepawhill.yz
 
 import com.google.common.eventbus.Subscribe
 import javafx.beans.property.SimpleBooleanProperty
+import tornadofx.observableListOf
 
 class YzModel(private val game: YzGame) {
 
     val canRoll = SimpleBooleanProperty(false)
-
+    val players = observableListOf<PlayerModel>()
     val dice = arrayOf(
         DieModel(),
         DieModel(),
@@ -27,6 +28,14 @@ class YzModel(private val game: YzGame) {
     @Subscribe
     fun handleCanRollChange(event: CanRollChange) {
         canRoll.value = event.canRoll
+    }
+
+    @Subscribe
+    fun gameStart(event: GameStart) {
+        players.clear()
+        event.players.forEach {
+            players.add(PlayerModel(it))
+        }
     }
 
     fun roll() {

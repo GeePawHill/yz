@@ -24,8 +24,8 @@ class YzModelTest {
     fun `resets player list on game start`() {
         game.bus.post(GameStart(listOf("GeePaw", "Molly", "Wally")))
         assertThat(model.players.size).isEqualTo(3)
-        assertThat(model.player[0].name).isEqualTo("GeePaw")
-        assertThat(model.player[1].name).isEqualTo("Molly")
-        assertThat(model.player[2].name).isEqualTo("Wally")
+        assertThat(model.players[0].name).isEqualTo("GeePaw")
+        assertThat(model.players[1].name).isEqualTo("Molly")
+        assertThat(model.players[2].name).isEqualTo("Wally")
     }
 }
