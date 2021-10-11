@@ -19,4 +19,13 @@ class YzModelTest {
         game.bus.post(CanRollChange(true))
         assertThat(model.canRoll.value).isEqualTo(true)
     }
+
+    @Test
+    fun `resets player list on game start`() {
+        game.bus.post(GameStart(listOf("GeePaw", "Molly", "Wally")))
+        assertThat(model.players.size).isEqualTo(3)
+        assertThat(model.player[0].name).isEqualTo("GeePaw")
+        assertThat(model.player[1].name).isEqualTo("Molly")
+        assertThat(model.player[2].name).isEqualTo("Wally")
+    }
 }
