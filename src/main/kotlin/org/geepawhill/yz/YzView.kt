@@ -5,7 +5,7 @@ import tornadofx.*
 class YzView : View() {
     val model = YzModel(YzGame())
 
-    override val root = pane {
+    override val root = vbox {
         hbox {
             button("Start") {
                 action { model.start() }
@@ -20,6 +20,9 @@ class YzView : View() {
                 }
                 label(it.pipsReadOnly)
             }
+        }
+        hbox {
+            label("This is the scorecard area.")
         }
     }
 }
