@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'org.geepawhill.yz'
-mainClassName = 'org.geepawhill.yz.Main'
+mainClassName = 'org.geepawhill.yz.MainKt'
 
 repositories {
     mavenCentral()
