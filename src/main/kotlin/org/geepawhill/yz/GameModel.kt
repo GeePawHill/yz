@@ -4,7 +4,7 @@ import com.google.common.eventbus.Subscribe
 import javafx.beans.property.SimpleBooleanProperty
 import tornadofx.observableListOf
 
-class YzModel(private val game: YzGame) {
+class GameModel(private val game: YzGame) {
 
     val canRoll = SimpleBooleanProperty(false)
     val players = observableListOf<PlayerModel>()

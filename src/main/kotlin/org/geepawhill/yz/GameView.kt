@@ -2,8 +2,8 @@ package org.geepawhill.yz
 
 import tornadofx.*
 
-class YzView : View() {
-    val model = YzModel(YzGame())
+class GameView : View() {
+    val model = GameModel(YzGame())
 
     override val root = vbox {
         hbox {

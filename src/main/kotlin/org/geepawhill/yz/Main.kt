@@ -3,18 +3,10 @@ package org.geepawhill.yz
 import tornadofx.App
 import tornadofx.launch
 
-class Main : App(YzView::class) {
-    override fun init() {
-        println("Starting Main")
-        super.init()
-    }
+class Main : App(GameView::class) {
 }
 
 class Making : App(MakingView::class) {
-    override fun init() {
-        println("Starting Making")
-        super.init()
-    }
 }
 
 fun main(args: Array<String>) {
