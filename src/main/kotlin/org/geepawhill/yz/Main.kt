@@ -10,7 +10,7 @@ class Main : App(YzView::class) {
     }
 }
 
-class Making : App(YzView::class) {
+class Making : App(MakingView::class) {
     override fun init() {
         println("Starting Making")
         super.init()
