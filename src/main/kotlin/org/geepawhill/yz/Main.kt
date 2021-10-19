@@ -4,9 +4,20 @@ import tornadofx.App
 import tornadofx.launch
 
 class Main : App(YzView::class) {
+    override fun init() {
+        println("Starting Main")
+        super.init()
+    }
+}
+
+class Making : App(YzView::class) {
+    override fun init() {
+        println("Starting Making")
+        super.init()
+    }
 }
 
 fun main(args: Array<String>) {
-    println("Called.")
-    launch<Main>(args)
+    if (args.contains("--making")) launch<Making>(args)
+    else launch<Main>(args)
 }
