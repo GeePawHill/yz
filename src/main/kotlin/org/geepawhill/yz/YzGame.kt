@@ -1,9 +1,7 @@
 package org.geepawhill.yz
 
 import com.google.common.eventbus.EventBus
-
-data class CanRollChange(val canRoll: Boolean)
-data class GameStart(val players: List<String>)
+import org.geepawhill.yz.event.CanRollChange
 
 class YzGame {
 

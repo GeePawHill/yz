@@ -1,8 +1,7 @@
 package org.geepawhill.yz
 
 import com.google.common.eventbus.EventBus
-
-data class PipChange(val die: Int, val pips: Int)
+import org.geepawhill.yz.event.PipChange
 
 class Dice(private val bus: EventBus, private val roller: Roller) {
     val pips = arrayOf(UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN, UNKNOWN)

@@ -1,5 +1,6 @@
 package org.geepawhill.yz
 
+import org.geepawhill.yz.event.PipChange
 import tornadofx.*
 
 class MakingView : View() {

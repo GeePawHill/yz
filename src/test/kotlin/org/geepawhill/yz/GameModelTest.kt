@@ -1,6 +1,9 @@
 package org.geepawhill.yz
 
 import org.assertj.core.api.Assertions.assertThat
+import org.geepawhill.yz.event.CanRollChange
+import org.geepawhill.yz.event.GameStart
+import org.geepawhill.yz.event.PipChange
 import org.junit.jupiter.api.Test
 
 class GameModelTest {

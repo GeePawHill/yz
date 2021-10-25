@@ -3,6 +3,7 @@ package org.geepawhill.yz
 import com.google.common.eventbus.EventBus
 import org.assertj.core.api.Assertions.assertThat
 import org.geepawhill.yz.Dice.Companion.UNKNOWN
+import org.geepawhill.yz.event.PipChange
 import org.junit.jupiter.api.Test
 
 class TestingRoller(vararg pending: Int) : Roller {
@@ -56,7 +57,7 @@ class DiceTest {
             PipChange(4, UNKNOWN)
         )
     }
-    
+
     @Test
     fun `reset resets to unknowns`() {
         dice.roll()
