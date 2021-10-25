@@ -1,6 +1,7 @@
 package org.geepawhill.yz
 
 import org.geepawhill.yz.event.PipChange
+import org.geepawhill.yz.making.MakingModel
 import tornadofx.*
 
 class MakingView : View() {
@@ -8,6 +9,8 @@ class MakingView : View() {
     val gameView = GameView()
     val gameModel = gameView.model
     val bus = gameModel.game.bus
+
+    val makingModel = MakingModel(bus)
 
     override val root = borderpane {
         top = toolbar {
@@ -18,5 +21,6 @@ class MakingView : View() {
             }
         }
         center = gameView.root
+        right = listview(makingModel.events)
     }
 }
