@@ -1,4 +1,4 @@
-package org.geepawhill.yz
+package org.geepawhill.yz.game
 
 class PlayerModel(val name: String) {
 }

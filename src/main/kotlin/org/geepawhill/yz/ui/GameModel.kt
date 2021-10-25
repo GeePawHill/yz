@@ -1,10 +1,12 @@
-package org.geepawhill.yz
+package org.geepawhill.yz.ui
 
 import com.google.common.eventbus.Subscribe
 import javafx.beans.property.SimpleBooleanProperty
 import org.geepawhill.yz.event.CanRollChange
 import org.geepawhill.yz.event.GameStart
 import org.geepawhill.yz.event.PipChange
+import org.geepawhill.yz.game.PlayerModel
+import org.geepawhill.yz.game.YzGame
 import tornadofx.*
 
 class GameModel(val game: YzGame) {

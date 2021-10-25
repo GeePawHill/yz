@@ -1,7 +1,8 @@
 package org.geepawhill.yz
 
-import tornadofx.App
-import tornadofx.launch
+import org.geepawhill.yz.ui.GameView
+import org.geepawhill.yz.ui.MakingView
+import tornadofx.*
 
 class Main : App(GameView::class) {
 }

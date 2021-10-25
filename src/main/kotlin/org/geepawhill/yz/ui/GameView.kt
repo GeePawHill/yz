@@ -1,5 +1,6 @@
-package org.geepawhill.yz
+package org.geepawhill.yz.ui
 
+import org.geepawhill.yz.game.YzGame
 import tornadofx.*
 
 class GameView : View() {

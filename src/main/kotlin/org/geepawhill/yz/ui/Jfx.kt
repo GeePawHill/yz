@@ -1,4 +1,4 @@
-package org.geepawhill.yz
+package org.geepawhill.yz.ui
 
 import javafx.embed.swing.JFXPanel
 import java.util.concurrent.CountDownLatch

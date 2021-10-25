@@ -1,4 +1,4 @@
-package org.geepawhill.yz
+package org.geepawhill.yz.ui
 
 import javafx.beans.property.ReadOnlyIntegerWrapper
 import javafx.beans.property.ReadOnlyObjectWrapper
@@ -29,13 +29,13 @@ class DieModel {
         }
 
         val images = arrayOf(
-                Image("org/geepawhill/yz/dice/question.png", 100.0, 100.0, true, true),
-                Image("org/geepawhill/yz/dice/one.png", 100.0, 100.0, true, true),
-                Image("org/geepawhill/yz/dice/two.png", 100.0, 100.0, true, true),
-                Image("org/geepawhill/yz/dice/three.png", 100.0, 100.0, true, true),
-                Image("org/geepawhill/yz/dice/four.png", 100.0, 100.0, true, true),
-                Image("org/geepawhill/yz/dice/five.png", 100.0, 100.0, true, true),
-                Image("org/geepawhill/yz/dice/six.png", 100.0, 100.0, true, true)
+            Image("org/geepawhill/yz/dice/question.png", 100.0, 100.0, true, true),
+            Image("org/geepawhill/yz/dice/one.png", 100.0, 100.0, true, true),
+            Image("org/geepawhill/yz/dice/two.png", 100.0, 100.0, true, true),
+            Image("org/geepawhill/yz/dice/three.png", 100.0, 100.0, true, true),
+            Image("org/geepawhill/yz/dice/four.png", 100.0, 100.0, true, true),
+            Image("org/geepawhill/yz/dice/five.png", 100.0, 100.0, true, true),
+            Image("org/geepawhill/yz/dice/six.png", 100.0, 100.0, true, true)
         )
 
         const val UNKNOWN = 0

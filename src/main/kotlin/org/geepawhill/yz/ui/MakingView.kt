@@ -1,4 +1,4 @@
-package org.geepawhill.yz
+package org.geepawhill.yz.ui
 
 import org.geepawhill.yz.event.PipChange
 import org.geepawhill.yz.making.MakingModel

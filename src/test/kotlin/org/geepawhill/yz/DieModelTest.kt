@@ -1,6 +1,7 @@
 package org.geepawhill.yz
 
 import org.assertj.core.api.Assertions.assertThat
+import org.geepawhill.yz.ui.DieModel
 import org.junit.jupiter.api.Test
 
 class DieModelTest {

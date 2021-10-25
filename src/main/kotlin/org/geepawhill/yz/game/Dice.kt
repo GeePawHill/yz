@@ -1,4 +1,4 @@
-package org.geepawhill.yz
+package org.geepawhill.yz.game
 
 import com.google.common.eventbus.EventBus
 import org.geepawhill.yz.event.PipChange
