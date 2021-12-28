@@ -6,7 +6,7 @@ Pending
 
 * [ ] Get basic view-model mechanics for game-ness.
     * [X] Start changes player columns
-    * [ ] CurrentPlayer changes player enablement
+    * [x] CurrentPlayer changes player enablement
     * [ ] GameOver forces dialog
 
 

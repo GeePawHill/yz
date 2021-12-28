@@ -47,7 +47,7 @@ class GameModel(val game: YzGame) {
     @Subscribe
     fun currentPlayer(event: CurrentPlayer) {
         players.withIndex().forEach {
-            it.value.isCurrent.value = it.index == event.player
+            it.value.isCurrent.value = (it.index == event.playerIndex)
         }
     }
 

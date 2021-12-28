@@ -1,5 +1,6 @@
 package org.geepawhill.yz.ui
 
+import org.geepawhill.yz.event.CurrentPlayer
 import org.geepawhill.yz.event.GameStart
 import org.geepawhill.yz.making.MakingModel
 import tornadofx.*
@@ -24,6 +25,16 @@ class MakingView : View() {
             button("Start 2") {
                 action {
                     bus.post(GameStart(listOf("GeePaw", "Molly")))
+                }
+            }
+            button("Current 0") {
+                action {
+                    bus.post(CurrentPlayer(0))
+                }
+            }
+            button("Current 1") {
+                action {
+                    bus.post(CurrentPlayer(1))
                 }
             }
         }
