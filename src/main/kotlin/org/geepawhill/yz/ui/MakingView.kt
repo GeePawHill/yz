@@ -1,6 +1,6 @@
 package org.geepawhill.yz.ui
 
-import org.geepawhill.yz.event.PipChange
+import org.geepawhill.yz.event.GameStart
 import org.geepawhill.yz.making.MakingModel
 import tornadofx.*
 
@@ -10,15 +10,20 @@ class MakingView : View() {
     val gameModel = gameView.model
     val bus = gameModel.game.bus
 
-    val scoresView = ScoresView()
+    val scoresView = ScoresView(gameModel)
 
     val makingModel = MakingModel(bus)
 
     override val root = borderpane {
         top = toolbar {
-            button("Tool") {
+            button("Start 1") {
                 action {
-                    bus.post(PipChange(2, 3))
+                    bus.post(GameStart(listOf("Molly", "Wally", "GeePaw")))
+                }
+            }
+            button("Start 2") {
+                action {
+                    bus.post(GameStart(listOf("GeePaw", "Molly")))
                 }
             }
         }
