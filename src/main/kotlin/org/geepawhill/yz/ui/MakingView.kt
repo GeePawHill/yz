@@ -10,6 +10,8 @@ class MakingView : View() {
     val gameModel = gameView.model
     val bus = gameModel.game.bus
 
+    val scoresView = ScoresView()
+
     val makingModel = MakingModel(bus)
 
     override val root = borderpane {
@@ -21,6 +23,7 @@ class MakingView : View() {
             }
         }
         center = gameView.root
+        bottom = scoresView.root
         right = listview(makingModel.events)
     }
 }
