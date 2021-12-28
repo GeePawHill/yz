@@ -4,10 +4,10 @@ A simple Kotlin desktop Yahtzee app for demonstration purposes.
 
 Pending
 
-* [ ] Get basic view-model mechanics for game-ness.
+* [X] Get basic view-model mechanics for game-ness.
     * [X] Start changes player columns
     * [x] CurrentPlayer changes player enablement
-    * [ ] GameOver forces dialog
+    * [x] GameOver forces dialog
 
 
     

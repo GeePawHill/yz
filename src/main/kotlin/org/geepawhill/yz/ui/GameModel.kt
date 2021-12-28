@@ -2,10 +2,7 @@ package org.geepawhill.yz.ui
 
 import com.google.common.eventbus.Subscribe
 import javafx.beans.property.SimpleBooleanProperty
-import org.geepawhill.yz.event.CanRollChange
-import org.geepawhill.yz.event.CurrentPlayer
-import org.geepawhill.yz.event.GameStart
-import org.geepawhill.yz.event.PipChange
+import org.geepawhill.yz.event.*
 import org.geepawhill.yz.game.PlayerModel
 import org.geepawhill.yz.game.YzGame
 import tornadofx.*
@@ -13,6 +10,7 @@ import tornadofx.*
 class GameModel(val game: YzGame) {
 
     val canRoll = SimpleBooleanProperty(false)
+    val isGameOver = SimpleBooleanProperty(false)
     val players = observableListOf<PlayerModel>()
     val dice = arrayOf(
         DieModel(),
@@ -49,6 +47,11 @@ class GameModel(val game: YzGame) {
         players.withIndex().forEach {
             it.value.isCurrent.value = (it.index == event.playerIndex)
         }
+    }
+
+    @Subscribe
+    fun gameOver(event: GameOver) {
+        isGameOver.value = true
     }
 
     fun roll() {

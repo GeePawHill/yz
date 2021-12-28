@@ -1,6 +1,7 @@
 package org.geepawhill.yz.ui
 
 import org.geepawhill.yz.event.CurrentPlayer
+import org.geepawhill.yz.event.GameOver
 import org.geepawhill.yz.event.GameStart
 import org.geepawhill.yz.making.MakingModel
 import tornadofx.*
@@ -35,6 +36,11 @@ class MakingView : View() {
             button("Current 1") {
                 action {
                     bus.post(CurrentPlayer(1))
+                }
+            }
+            button("GameOver") {
+                action {
+                    bus.post(GameOver(emptyList()))
                 }
             }
         }
