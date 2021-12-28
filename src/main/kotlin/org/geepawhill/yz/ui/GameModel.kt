@@ -3,6 +3,7 @@ package org.geepawhill.yz.ui
 import com.google.common.eventbus.Subscribe
 import javafx.beans.property.SimpleBooleanProperty
 import org.geepawhill.yz.event.CanRollChange
+import org.geepawhill.yz.event.CurrentPlayer
 import org.geepawhill.yz.event.GameStart
 import org.geepawhill.yz.event.PipChange
 import org.geepawhill.yz.game.PlayerModel
@@ -40,6 +41,13 @@ class GameModel(val game: YzGame) {
         players.clear()
         event.players.forEach {
             players.add(PlayerModel(it))
+        }
+    }
+
+    @Subscribe
+    fun currentPlayer(event: CurrentPlayer) {
+        players.withIndex().forEach {
+            it.value.isCurrent.value = it.index == event.player
         }
     }
 
