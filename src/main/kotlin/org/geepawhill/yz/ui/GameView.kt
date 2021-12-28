@@ -22,8 +22,5 @@ class GameView : View() {
                 label(it.pipsReadOnly)
             }
         }
-        hbox {
-            label("This is the scorecard area.")
-        }
     }
 }
