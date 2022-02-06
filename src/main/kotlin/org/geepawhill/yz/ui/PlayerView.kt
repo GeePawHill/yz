@@ -1,6 +1,5 @@
 package org.geepawhill.yz.ui
 
-import org.geepawhill.yz.game.PlayerModel
 import tornadofx.*
 
 class PlayerView(playerModel: PlayerModel) : Fragment() {

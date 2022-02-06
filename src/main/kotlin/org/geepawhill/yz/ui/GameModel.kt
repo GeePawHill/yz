@@ -3,7 +3,6 @@ package org.geepawhill.yz.ui
 import com.google.common.eventbus.Subscribe
 import javafx.beans.property.SimpleBooleanProperty
 import org.geepawhill.yz.event.*
-import org.geepawhill.yz.game.PlayerModel
 import org.geepawhill.yz.game.YzGame
 import tornadofx.*
 

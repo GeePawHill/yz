@@ -1,4 +1,4 @@
-package org.geepawhill.yz.game
+package org.geepawhill.yz.ui
 
 import javafx.beans.property.SimpleBooleanProperty
 
